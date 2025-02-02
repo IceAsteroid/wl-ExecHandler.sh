@@ -1,9 +1,9 @@
 # wl-ExecHandler.sh
-Simple program runner &amp; supervior mainly for window managers that run programs in exec in a WM's conf
+Simple program runner & supervior mainly for window managers that runs programs in exec in a WM's conf
 
 # Description & Motivation
 
-Have you ever been tired of programs launched in a Window maanger's conf file and then some of them crashed and you have to restart them manually?
+Have you ever been tired of programs launched in a Window manager's conf file and then some of them crashed and you have to restart them manually?
 
 Or, those leftovers still running in the background when the Window manager exits or crashes.
 
