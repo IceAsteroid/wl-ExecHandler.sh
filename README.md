@@ -20,7 +20,7 @@ This script comes to rescue.
 # Help page
 ```
 Usage:
-  swayExecHandlerNew.sh [OPTIONS]
+  wl-ExecHandler.sh [OPTIONS]
 Options:
   -r              Restart the command.
   -k              Keep the existing running command.
