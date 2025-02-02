@@ -28,7 +28,6 @@ Options:
   -c COMMAND      Specify the main command.
   -w COMMANDS     Whole line of commands to run.
   -h              Show this help message.
-  -v              Enable verbose logging.
 Description:
   Restart or keep COMMAND running based on options.
   Use only one of -r or -k.
@@ -37,5 +36,5 @@ Description:
     This script removes the BG '&' symbol if presented, which forces COMMAND
     , to run in forground.
   Example:
-    -c "emacs -nw" -w "[ -f emacsExist ] && _COMMAND_ && echo 'Emacs started'
+    wl-ExecHandler.sh -c "emacs -nw" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs started'"
 ```
