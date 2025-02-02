@@ -66,7 +66,7 @@ function testArgs_() {
 # Argumental options without arguments are handled by ‘*) printHelp_’ below.
 if ! [[ -v 1 ]]; then
   printHelp_; exit 1
-elif ! [[ "${1}" =~ -r|-k|-R|-c|-w|-a ]]; then
+elif ! [[ "${1}" =~ -r|-k|-R|-c|-w ]]; then
   printHelp_; exit 1
 fi
 
