@@ -10,10 +10,10 @@ Or, those leftovers still running in the background when the Window manager exit
 This script comes to rescue.
 
 # Features
-- Restarts the program automatically if it's crashed with `-R` option.
-- Prevent to run the program if it's already running with `-k` option.
+- Revives the program automatically if it's crashed with `-R` option.
+- Prevents to run the program if it's already running with `-k` option.
   - By checking if a temp file that stores the pgid of the script that's running the same program.    
-- Force to restart whether the program is running or not.
+- Forces to restart whether the program is running or not with `-r` option.
 - Can be terminated of all programs launched by the script, and instances of script itself when the Window Manager exits
   - By using `killall -g wl-ExecHandler.sh` that terminates all processes of pgid of running instances of the script.
   - For example in sway: `bindsym --no-repeat Control+Alt+Delete exec "killall -g wl-ExecHandler.sh && swaymsg exit"`
