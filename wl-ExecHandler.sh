@@ -8,7 +8,7 @@ set -e
 set -u
 
 declare -gi CurrentScriptPgid
-declare TmpDir
+declare -g TmpDir
 
 # Kill all sub processes when the script is sent to exit
 CurrentScriptPgid="$(ps -o pgid= $$ | grep -o '[0-9]*')"
@@ -23,7 +23,7 @@ Usage:
 Options:
   -r              Restart the command.
   -k              Keep the existing running command.
-  -R              Revive the command if it crashes.
+  -R              Always revive the command if it crashes.
   -c COMMAND      Specify the main command.
   -w COMMANDS     Whole line of commands to run.
   -h              Show this help message.
@@ -35,7 +35,7 @@ Description:
     This script removes the BG '&' symbol if presented, which forces COMMAND
     , to run in forground.
   Example:
-    $(basename "$0") -c "emacs -nw" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs started'"
+    $(basename "$0") -c "emacs --daemon" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs daemon started.'"
 EOF
 }
 
@@ -175,26 +175,17 @@ function vGetPrevSameMainCmdItsPgid_() {
 
 function aWriteCurrentPgidToMainCmdItsPgidFile_() {
   declare mainCmdLineTrimmedNoArgsNoBg sameMainCmdLineItsPgidFilePath
-  declare -i currentShellPid
+  declare -i currentShellPgid
   mainCmdLineTrimmedNoArgsNoBg="$(vGetMainCmdLineTrimmedNoArgsNoBg_)"
   sameMainCmdLineItsPgidFilePath="$(vGetSameMainCmdLineItsPgidFilePath_)"
   # Shell pid can be directly accessed in a function
-  currentShellPid="${CurrentScriptPgid}"
-  echo -n "${currentShellPid}" > "${sameMainCmdLineItsPgidFilePath}"
+  currentShellPgid="${CurrentScriptPgid}"
+  echo -n "${currentShellPgid}" > "${sameMainCmdLineItsPgidFilePath}"
 }
 
 function isPrevSameMainCmdLineRunning_() {
   declare -i prevSameMainCmdLineItsPgid isPrevSameMainCmdLineRunning
   prevSameMainCmdLineItsPgid="$(vGetPrevSameMainCmdItsPgid_)"
-  # if ! [[ "${prevSameMainCmdLineItsPgid}" == "" ]]; then
-  #   if ! [[ "${prevSameMainCmdLineItsPgid}" -eq 0 ]] ; then
-  #     if pgrep -P "${prevSameMainCmdLineItsPgid}" 1>/dev/null ; then
-  #       isPrevSameMainCmdLineRunning="1"
-  #     else
-  #       isPrevSameMainCmdLineRunning="0"
-  #     fi
-  #   fi
-  # fi
   if ! [[ "${prevSameMainCmdLineItsPgid}" == "" ]] \
        && ! [[ "${prevSameMainCmdLineItsPgid}" -eq 0 ]] \
        && pgrep -P "${prevSameMainCmdLineItsPgid}" 1>/dev/null ; then
