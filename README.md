@@ -16,6 +16,7 @@ This script comes to rescue.
 - Force to restart whether the program is running or not.
 - Can be terminated of all programs launched by the script, and instances of script itself when the Window Manager exits
   - By using `killall -g wl-ExecHandler.sh` that terminates all processes of pgid of running instances of the script.
+  - For example in sway: `bindsym --no-repeat Control+Alt+Delete exec "killall -g wl-ExecHandler.sh && swaymsg exit"`
 
 # Help page
 ```
