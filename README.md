@@ -3,7 +3,7 @@ Simple program runner & supervior mainly for window managers that runs programs 
 
 # Description & Motivation
 
-Have you ever been tired of programs launched in a Window manager's conf file and then some of them crashed and you have to restart them manually?
+Have you ever been tired of programs launched in a Window manager's conf file and then some of them crash and you have to restart them manually?
 
 Or, those leftovers still running in the background when the Window manager exits or crashes.
 
@@ -36,5 +36,5 @@ Description:
     This script removes the BG '&' symbol if presented, which forces COMMAND
     , to run in forground.
   Example:
-    wl-ExecHandler.sh -c "emacs -nw" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs started'"
+    wl-ExecHandler.sh -c "emacs --daemon" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs daemon started.'"
 ```
