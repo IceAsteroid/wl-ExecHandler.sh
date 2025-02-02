@@ -18,7 +18,7 @@ This script comes to rescue.
   - By using `killall -g wl-ExecHandler.sh` that terminates all processes of pgid of running instances of the script.
   - For example in sway: `bindsym --no-repeat Control+Alt+Delete exec "killall -g wl-ExecHandler.sh && swaymsg exit"`
 - Log the program's output to a file in the directory specified in `TmpDir` in the script, the name would be like `swayExecHandler_CommandName.log`.
-  - The name hasn't been change from `swayExecHandler_CommandName.log` to `wl-ExecHandler_CommandName.log`, yet.
+  - The name hasn't been changed from `swayExecHandler_CommandName.log` to `wl-ExecHandler_CommandName.log`, yet.
 
 # Help page
 ```
