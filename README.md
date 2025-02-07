@@ -39,7 +39,7 @@ Note:
   The -r option restarts the command if running, otherwise just start it.
   The -k option doesn't run the command if running, otherwise just start it.
   This script removes the BG '&' symbol if presented, which forces COMMAND
-    , to run in forground.
+  , to run in forground.
 Example:
   wl-ExecHandler.sh -c "emacs --daemon" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs daemon started.'"
 ```
