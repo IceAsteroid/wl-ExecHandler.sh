@@ -21,7 +21,7 @@ printHelp_() {
 Usage:
   $(basename "$0") [OPTIONS]
 Options:
-  -r              Restart the command.
+  -r              Restart the running command.
   -k              Keep the existing running command.
   -R              Always revive the command if it crashes.
   -c COMMAND      Specify the main command.
@@ -31,10 +31,12 @@ Description:
   Restart or keep COMMAND running based on options.
   Use only one of -r or -k.
   Both -c and -w options must be specified.
-  Note:
-    This script removes the BG '&' symbol if presented, which forces COMMAND
+Note:
+  The -r option restarts the command if running, otherwise just start it.
+  The -k option doesn't run the command if running, otherwise just start it.
+  This script removes the BG '&' symbol if presented, which forces COMMAND
     , to run in forground.
-  Example:
+Example:
     $(basename "$0") -c "emacs --daemon" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs daemon started.'"
 EOF
 }
