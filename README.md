@@ -46,6 +46,9 @@ Example:
 
 # Examples in Sway Conf
 ```
+# Load gtk settings to sway
+exec "wl-ExecHandler.sh -r -c 'swayLoadGTKSettings.sh' -w '_COMMAND_'"
+
 # Start audio components, must run before waybar, otherwise waybar will crash.
 exec "wl-ExecHandler.sh -R -k -c 'pipewire' -w '_COMMAND_'"
 exec "wl-ExecHandler.sh -R -k -c 'wireplumber' -w '_COMMAND_'"
