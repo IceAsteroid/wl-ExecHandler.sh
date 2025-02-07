@@ -55,7 +55,6 @@ exec "wl-ExecHandler.sh -R -r -c 'swayWaybarStart.sh' -w '_COMMAND_'"
 
 # Make sure waybar starts before programs that have trays, otherwise some trays won’t show up.
 # Must run after piepwire, otherwise waybar will crash.
-# exec "sleep 0.2 && wl-ExecHandler.sh -R -r -c 'swayWaybarStart.sh' -w '_COMMAND_' -a 'waybar'"
 exec "wl-ExecHandler.sh -R -r -c 'swayWaybarStart.sh' -w '_COMMAND_'"
 
 # Start swayr(sway window switcher)
@@ -76,7 +75,7 @@ exec "wl-ExecHandler.sh -R -k -c 'polkit-gnome-authentication-agent-1' -w '_COMM
 # Start fcitx input method framework
 exec "sleep 4 && wl-ExecHandler.sh -R -r -c 'fcitx5 -d' -w '_COMMAND_'"
 
-# BlueTooth manager system tray
+# Bluetooth manager system tray
 exec "sleep 4 && wl-ExecHandler.sh -R -r -c 'blueman-applet' -w '_COMMAND_'"
 
 # Start cmst(connman qt gui configuration tool)
