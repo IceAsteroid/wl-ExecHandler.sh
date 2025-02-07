@@ -43,3 +43,45 @@ Note:
 Example:
     wl-ExecHandler.sh -c "emacs --daemon" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs daemon started.'"
 ```
+
+# Examples in Sway Conf
+```
+# Start audio components, must run before waybar, otherwise waybar will crash.
+exec "wl-ExecHandler.sh -R -k -c 'pipewire' -w '_COMMAND_'"
+exec "wl-ExecHandler.sh -R -k -c 'wireplumber' -w '_COMMAND_'"
+exec "wl-ExecHandler.sh -R -k -c 'pipewire-pulse' -w '_COMMAND_'"
+exec "wl-ExecHandler.sh -R -r -c 'mpris-proxy' -w '_COMMAND_'"
+exec "wl-ExecHandler.sh -R -r -c 'swayWaybarStart.sh' -w '_COMMAND_'"
+
+# Make sure waybar starts before programs that have trays, otherwise some trays won’t show up.
+# Must run after piepwire, otherwise waybar will crash.
+# exec "sleep 0.2 && wl-ExecHandler.sh -R -r -c 'swayWaybarStart.sh' -w '_COMMAND_' -a 'waybar'"
+exec "wl-ExecHandler.sh -R -r -c 'swayWaybarStart.sh' -w '_COMMAND_'"
+
+# Start swayr(sway window switcher)
+exec "wl-ExecHandler.sh -R -r -c 'swayrd' -w 'env RUST_BACKTRACE=1; RUST_LOG=swayr=debug; _COMMAND_'"
+
+# Key simulator, used by keycursor(set in config) ..
+exec "wl-ExecHandler.sh -R -k -c 'dotoold' -w '_COMMAND_'"
+
+# Notification
+exec "wl-ExecHandler.sh -R -r -c 'swaync' -w '_COMMAND_'"
+
+# Start touchpad multi-gestures with libinput-gestures & wtype
+exec "wl-ExecHandler.sh -R -k -c 'libinput-gestures -c $HOME/.config/libinput-gestures/main.conf' -w '_COMMAND_'"
+
+# polkit gnome GUI, the binary's linked to $HOME/Bin/
+exec "wl-ExecHandler.sh -R -k -c 'polkit-gnome-authentication-agent-1' -w '_COMMAND_'"
+
+# Start fcitx input method framework
+exec "sleep 4 && wl-ExecHandler.sh -R -r -c 'fcitx5 -d' -w '_COMMAND_'"
+
+# BlueTooth manager system tray
+exec "sleep 4 && wl-ExecHandler.sh -R -r -c 'blueman-applet' -w '_COMMAND_'"
+
+# Start cmst(connman qt gui configuration tool)
+# Make sure waybar is launched before cmst, othewrise cmst tray won’t show up
+exec "sleep 4 && wl-ExecHandler.sh -R -r -c 'cmst -m' -w '_COMMAND_'"
+
+```
+
