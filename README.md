@@ -41,7 +41,7 @@ Note:
   This script removes the BG '&' symbol if presented, which forces COMMAND
     , to run in forground.
 Example:
-    wl-ExecHandler.sh -c "emacs --daemon" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs daemon started.'"
+  wl-ExecHandler.sh -c "emacs --daemon" -w "[ -f emacsExist ] && _COMMAND_ && notify-send 'Emacs daemon started.'"
 ```
 
 # Examples in Sway Conf
