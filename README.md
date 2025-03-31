@@ -1,17 +1,17 @@
 # wl-ExecHandler.sh
-Simple program runner & supervior mainly for window managers that runs programs in exec in a WM's conf
+Simple program runner & supervior for window managers that runs programs in exec in a WM's conf
 
 # Description & Motivation
 
-Have you ever been tired of programs launched in a Window manager's conf file and then some of them crash and you have to restart them manually?
+Ever tired of programs launched in a Window manager's conf file and then some of them crash and you have to restart them manually?
 
 Or, those leftovers still running in the background when the Window manager exits or crashes.
 
 This script comes to rescue.
 
 # Features
-- Revives the program automatically if it's crashed with `-R` option.
-- Prevents to run the program if it's already running with `-k` option.
+- Revives the program automatically if it's crashed, with `-R` option.
+- Prevents to run the program if it's already running, with `-k` option.
   - By checking if a temp file that stores the pgid of the script that's running the same program.    
 - Forces to restart whether the program is running or not with `-r` option.
 - Can be terminated of all programs launched by the script, and instances of script itself when the Window Manager exits
